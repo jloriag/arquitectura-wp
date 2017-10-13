@@ -256,3 +256,15 @@ require get_template_directory() . '/inc/template-tags.php';
 
 /* Customizer additions. */
 require get_template_directory() . '/inc/customizer.php';
+
+add_filter('wp_nav_menu_items','buscador_en_menu', 10, 2);
+ 
+function buscador_en_menu($items, $args) {
+ 
+$searchform = get_search_form( false );
+ 
+$items .= '<li>' . $searchform . '</li>';
+ 
+return $items;
+ 
+}
